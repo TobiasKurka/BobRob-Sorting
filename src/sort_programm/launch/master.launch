@@ -1,0 +1,39 @@
+<launch>
+    <!-- 1. Starten Sie den UR Robot Driver -->
+    <include file="$(find ur_robot_driver)/launch/ur5e_bringup.launch">
+        <arg name="robot_ip" value="192.168.1.3"/>
+        <arg name="kinematics_config" value="/home/tobias/my_robot_calibration.yaml"/>
+        <arg name="use_tool_communication" value="true"/>
+        <arg name="tool_voltage" value="24"/>
+        <arg name="tool_parity" value="0"/>
+        <arg name="tool_baud_rate" value="115200"/>
+        <arg name="tool_stop_bits" value="1"/>
+        <arg name="tool_rx_idle_chars" value="1.5"/>
+        <arg name="tool_tx_idle_chars" value="3.5"/>
+        <arg name="tool_device_name" value="/tmp/ttyUR"/>
+    </include>
+
+    <!-- 2. Starten Sie die MoveIt Konfiguration -->
+    <include file="$(find ur5e_moveit_config)/launch/moveit_planning_execution.launch"/>
+
+    <!-- 3. Starten Sie die RealSense Kamera -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="align_depth" value="true"/>
+    </include> 
+
+    <!-- 4. Starten Sie die Kamera-Transformation -->
+    <include file="$(find my_camera_config)/launch/camera_transform.launch"/> 
+    
+    <!-- 5. Starten Sie RViz -->
+    <include file="$(find ur5e_moveit_config)/launch/moveit_rviz.launch">
+        <arg name="rviz_config" value="$(find ur5e_moveit_config)/launch/moveit.rviz"/>
+    </include>
+    
+    <!-- 8.Starten des color_detector_node(Erkennung der Legosteine) in einem extra terminal(da ständige Ausgabe notwendig) -->
+   
+    
+    <!-- 9. Bewegungsplanung zum Zielpunkt -->
+    <!-- <include file="$(find sort_programm)/launch/sort_legobricks.launch" /> -->
+    
+
+</launch>

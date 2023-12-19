@@ -1,0 +1,5 @@
+<launch>
+    <!-- Transformation from the base_link to the camera -->
+    <node pkg="tf" type="static_transform_publisher" name="base_to_camera_broadcaster"
+        args="-0.02 0.3 0.175 0 0 0   base_link realsense_base_link 100" />
+</launch>
