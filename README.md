@@ -14,8 +14,24 @@ Diese Masterarbeit beschäftigt sich mit der Entwicklung eines automatisierten S
 ## Installation und Setup
 Stellen Sie sicher, dass alle Hardwarekomponenten korrekt installiert und konfiguriert sind, und dass ROS Noetic auf Ubuntu 20.04 läuft.
 
+Folgen Sie diesen Schritten für die Einrichtung:
+- Feste IP-Adresse am Laptop und am UR5e einstellen. Siehe Übersicht.
+- Laptop per LAN mit dem UR5e verbinden.
+- Kamera per USB-Kabel mit dem Laptop verbinden.
+- Rs485 URCap installieren. Funktioniert nicht gleichzeitig mit dem ROBOTIQ URCap.
+  - [Setup Tool Communication](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/setup_tool_communication.md)
+- URCap external control installiert?
+  - [Install URCap E-Series](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_robot_driver/doc/install_urcap_e_series.md)
+
 ## Verwendung
-Führen Sie die folgenden Befehle in der angegebenen Reihenfolge aus, um das Programm zu starten:
+Bevor Sie die Befehle ausführen, beachten Sie bitte folgende Schritte:
+
+- Externalcontrol URCap am Bedienpanel des UR5e starten.
+- 5 Terminals öffnen und die Befehle wie aufgeführt in dieser Reihenfolge ablaufen lassen.
+- Das Programm startet und sortiert alle Legosteine nach den Farben.
+- Bei einem neuen Versuch müssen nur die letzten zwei Terminals neu gestartet werden.
+
+Führen Sie dann die folgenden Befehle in der angegebenen Reihenfolge aus, um das Programm zu starten:
 
 1. Hauptprogramm mit allen Treibern starten:
 roslaunch sort_programm master.launch
