@@ -47,12 +47,18 @@ elif color == "green":
    pose_drop_off.position.x = 0.3
    pose_drop_off.position.y = 0.678 - 0.24
    pose_drop_off.position.z = 0.1
+```
 
-- **Kameraposition ändern:**
-Im Ordner my_camera_config, im Programm camera_transform.launch, können Sie die Position der Kamera in x, y, z Koordinaten anpassen.
-- **Farbereknnung anpassen/erweitern:**
-Im Ordner color_detection können Sie das Programm color_detector_Trackbar.py ausführen, um mit Schiebereglern in einer Live-Ansicht den HSV-Farbbereich festzulegen und diesen dann im Programm color_functions.py einzutragen.
+- **Kameraposition anpassen:**
+Um die Position der Kamera anzupassen, bearbeiten Sie die Datei `camera_transform.launch` im Ordner `my_camera_config`. Dort können Sie die x, y, z Koordinaten direkt im XML-Tag für die Kameraposition ändern. Beispiel:
+```xml
+<arg name="x" default="1.0"/>
+<arg name="y" default="0.0"/>
+<arg name="z" default="1.5"/>
+```
+- **Farberkennung anpassen/erweitern:**
+Die Farberkennung kann im Ordner color_detection durch Ausführung des Programms color_detector_Trackbar.py angepasst oder erweitert werden. Dies ermöglicht Ihnen, den HSV-Farbbereich über Schieberegler in einer Live-Ansicht zu justieren. Die festgelegten Werte sollten anschließend in color_functions.py übernommen werden, um die Erkennung der Farben entsprechend zu modifizieren.
 
-## Kontakt
+### Kontakt
 
 Für Fragen oder Anmerkungen zu diesem Projekt kontaktieren Sie mich bitte unter tobias.kurka@studmail.htw-aalen.de.
